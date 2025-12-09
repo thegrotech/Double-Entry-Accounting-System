@@ -7,6 +7,7 @@ const fs = require('fs');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 5000;
 
 // ===== LOAD COMPANY DETAILS =====
@@ -463,4 +464,5 @@ process.on('unhandledRejection', (reason, promise) => {
 
 
 module.exports = app;
+
 
