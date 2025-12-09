@@ -514,4 +514,8 @@ async function finalizeDatabase() {
     // Don't exit immediately, let user see the error
     setTimeout(() => process.exit(1), 3000);
   }
+
 })();
+
+// Export the initializeDatabase function
+module.exports = { initializeDatabase };
