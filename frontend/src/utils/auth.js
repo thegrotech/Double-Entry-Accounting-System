@@ -1,7 +1,7 @@
 class AuthService {
   static login = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('https://double-entry-accounting-system-backend.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -70,7 +70,7 @@ class AuthService {
       const token = this.getToken();
       if (!token) return { success: false, error: 'No token' };
 
-      const response = await fetch('http://localhost:5000/api/auth/verify', {
+      const response = await fetch('https://double-entry-accounting-system-backend.onrender.com/api/auth/verify', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
@@ -97,5 +97,6 @@ class AuthService {
     }
   };
 }
+
 
 export default AuthService;
