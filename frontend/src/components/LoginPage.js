@@ -94,7 +94,7 @@ const Login = ({ onLoginSuccess }) => {
               <div className="credential-item">
                 <strong>👑 Administrator:</strong>
                 <div>Username: <code>admin</code></div>
-                <div>Password: <code>admin123</code></div>
+                <div>Password: <code>........</code></div>
                 <small>Full access to all features</small>
               </div>
               
@@ -108,7 +108,7 @@ const Login = ({ onLoginSuccess }) => {
             
             <div className="security-notice">
               <strong>⚠️ Security Notice:</strong>
-              <p>Change default passwords immediately after first login!</p>
+              <p>Contact Administrator at +923180033899 if any error occur!</p>
             </div>
           </div>
         </div>
@@ -120,5 +120,6 @@ const Login = ({ onLoginSuccess }) => {
     </div>
   );
 };
+
 
 export default Login;
