@@ -55,11 +55,12 @@ app.use(helmet({
 }));
 
 // Configure CORS for development and production
-const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? [
-      process.env.FRONTEND_URL || 'https://double-entry-accounting-system.vercel.app/',
-    ]
-  : ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = [
+  'https://double-entry-accounting-system.vercel.app',
+  'https://double-entry-accounting-system-backend.onrender.com',
+  'http://localhost:3000',
+  'http://localhost:3001'
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -462,3 +463,4 @@ process.on('unhandledRejection', (reason, promise) => {
 
 
 module.exports = app;
+
