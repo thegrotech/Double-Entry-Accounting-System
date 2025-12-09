@@ -1,0 +1,17 @@
+{
+  "company": {
+    "name": "Grotech Solutions",
+    "address": "Nawab Siddique Ali Khan Rd, Enquiry Office, Nazimabad, KHI 74600, Pakistan",
+    "phone": "+92 318 0033899",
+    "email": "thegrotech@gmail.com"
+  },
+  "bank": {
+    "name": "Meezan Bank Pvt Ltd",
+    "account_name": "Grotech Solutions", 
+    "account_number": "99620103201000"
+  },
+  "system": {
+    "default_ledger_period": "Q1 2024",
+    "prepared_by": "Admin"
+  }
+}
