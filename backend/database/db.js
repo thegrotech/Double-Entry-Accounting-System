@@ -2,14 +2,17 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Validate required environment variables
-const requiredEnvVars = ['DB_HOST', 'DB_PORT', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'];
-const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
-
-if (missingEnvVars.length > 0 && process.env.NODE_ENV !== 'test') {
-  console.error('❌ Missing required environment variables:', missingEnvVars.join(', '));
-  console.error('💡 Please check your .env file or set these variables');
-  if (process.env.NODE_ENV === 'production') {
+// Check for either DATABASE_URL or individual variables
+if (!process.env.DATABASE_URL && process.env.NODE_ENV === 'production') {
+  // Check for individual variables as fallback
+  const requiredEnvVars = ['DB_HOST', 'DB_PORT', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'];
+  const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+  
+  if (missingEnvVars.length > 0) {
+    console.error('❌ Missing database configuration. Please set either:');
+    console.error('   1. DATABASE_URL (for Supabase)');
+    console.error('   2. Or all individual variables: DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD');
+    console.error('💡 For Supabase, use DATABASE_URL from project settings → Database → Connection string');
     process.exit(1);
   }
 }
@@ -166,4 +169,5 @@ module.exports = {
   async close() {
     await pool.end();
   }
+
 };
