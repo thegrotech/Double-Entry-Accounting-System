@@ -57,8 +57,7 @@ app.use(helmet({
 // Configure CORS for development and production
 const allowedOrigins = process.env.NODE_ENV === 'production'
   ? [
-      process.env.FRONTEND_URL || 'https://your-frontend.vercel.app',
-      'https://yourdomain.com'  // Add your custom domain if any
+      process.env.FRONTEND_URL || 'https://double-entry-accounting-system.vercel.app/',
     ]
   : ['http://localhost:3000', 'http://localhost:3001'];
 
@@ -460,5 +459,6 @@ process.on('uncaughtException', (error) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error('⚠️ Unhandled Rejection at:', promise, 'reason:', reason);
 });
+
 
 module.exports = app;
