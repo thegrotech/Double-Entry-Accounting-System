@@ -2,7 +2,7 @@ import axios from 'axios';
 import AuthService from './auth';
 
 // Define the API base URL
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://double-entry-accounting-system-backend.onrender.com/api';
 
 // Create axios instance with default config
 const api = axios.create({
@@ -212,9 +212,6 @@ export const accountingAPI = {
   // Debug system
   debugSystem: () => api.get('/system/debug'),
   
-  // Fix all transactions (debug endpoint)
-  fixAllTransactions: () => api.get('/debug/fix-all-transactions'),
-  
   // ===== COMPANY CONFIGURATION =====
   
   // Get company details
@@ -328,4 +325,5 @@ export const isValidDate = (dateStr) => {
 // export { api as default, authAPI, accountingAPI };
 
 // Add this instead - export api as default:
+
 export default api;
