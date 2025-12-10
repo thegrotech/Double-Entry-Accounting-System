@@ -125,7 +125,7 @@ function App() {
           <h2>Accounting System</h2>
           <div className="user-info">
             <span className="user-role">
-              {userRole === 'admin' ? '👑 Admin' : '👁️ Viewer'}
+              {userRole === 'admin' ? 'Admin' : 'Viewer'}
             </span>
           </div>
           {isMobile && (
