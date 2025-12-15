@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../utils/auth'; // Use AuthService directly
+import AuthService from '../utils/auth';
 import './Login.css';
 
 const Login = ({ onLoginSuccess }) => {
@@ -7,6 +7,7 @@ const Login = ({ onLoginSuccess }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,11 +21,8 @@ const Login = ({ onLoginSuccess }) => {
     }
     
     try {
-      // Use AuthService.login() directly
       const result = await AuthService.login(username, password);
       
-      // If we get here, login was successful
-      // Call the parent function to notify login success
       if (onLoginSuccess) {
         onLoginSuccess();
       }
@@ -33,6 +31,10 @@ const Login = ({ onLoginSuccess }) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -63,20 +65,34 @@ const Login = ({ onLoginSuccess }) => {
                 placeholder="Enter your username"
                 disabled={loading}
                 required
+                autoComplete="username"
               />
             </div>
             
-            <div className="form-group">
+            <div className="form-group password-group">
               <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                disabled={loading}
-                required
-              />
+              <div className="password-input-wrapper">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  disabled={loading}
+                  required
+                  autoComplete="current-password"
+                />
+                <button 
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={togglePasswordVisibility}
+                  disabled={loading}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
+                  data-visible={showPassword}
+                  tabIndex="0"
+                />
+              </div>
             </div>
             
             <button 
@@ -92,23 +108,35 @@ const Login = ({ onLoginSuccess }) => {
             <h4>Default Login Credentials:</h4>
             <div className="credentials">
               <div className="credential-item">
-                <strong>👑 Administrator:</strong>
-                <div>Username: <code>admin</code></div>
-                <div>Password: <code>admin123</code></div>
+                <strong>Administrator</strong>
+                <div>
+                  <span>Username:</span>
+                  <code>admin</code>
+                </div>
+                <div>
+                  <span>Password:</span>
+                  <code>........</code>
+                </div>
                 <small>Full access to all features</small>
               </div>
               
               <div className="credential-item">
-                <strong>👁️ Viewer:</strong>
-                <div>Username: <code>viewer</code></div>
-                <div>Password: <code>viewer123</code></div>
+                <strong>Viewer</strong>
+                <div>
+                  <span>Username:</span>
+                  <code>viewer</code>
+                </div>
+                <div>
+                  <span>Password:</span>
+                  <code>viewer123</code>
+                </div>
                 <small>Read-only access (no modifications)</small>
               </div>
             </div>
             
             <div className="security-notice">
-              <strong>⚠️ Security Notice:</strong>
-              <p>Change default passwords immediately after first login!</p>
+              <strong>Security Notice</strong>
+              <p>Contact Administrator Immediately +92 318 0033899 if any error occur!</p>
             </div>
           </div>
         </div>
