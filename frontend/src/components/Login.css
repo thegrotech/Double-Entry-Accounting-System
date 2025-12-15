@@ -205,4 +205,232 @@
   .login-form-container {
     padding: 20px;
   }
+
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Password toggle styles */
+.password-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #666;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  z-index: 2;
+}
+
+.password-toggle:hover:not(:disabled) {
+  color: #4f46e5;
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.eye-icon {
+  font-size: 20px;
+  display: inline-block;
+}
+
+/* Adjust input padding for password field */
+.password-group input {
+  padding-right: 45px !important;
+}
+
+/* Form validation errors */
+.field-error {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+}
+
+.input-error:focus {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Form options (Remember me checkbox) */
+.form-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  font-weight: 400;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+  accent-color: #4f46e5;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Demo login buttons */
+.demo-logins {
+  margin-top: 25px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.demo-title {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+  text-align: center;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.demo-button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.demo-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.demo-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.demo-button.admin {
+  background: linear-gradient(135deg, #4f46e5 0%, #7e22ce 100%);
+  color: white;
+}
+
+.demo-button.viewer {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+/* Login attempts counter */
+.attempts-counter {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Enhanced security notice */
+.security-notice small {
+  display: block;
+  margin-top: 8px;
+  color: #856404;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Locked account message */
+.error-message strong {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 480px) {
+  .demo-buttons {
+    flex-direction: column;
+  }
+  
+  .password-toggle {
+    right: 8px;
+    padding: 6px;
+  }
+  
+  .demo-button {
+    padding: 12px;
+  }
+}
+
+/* Hover effects for form elements */
+.form-group input:not(:disabled):hover {
+  border-color: #a5b4fc;
+}
+
+.password-toggle:not(:disabled):hover {
+  background: #f3f4f6;
+  border-radius: 50%;
+}
+
+/* Focus styles for accessibility */
+.password-toggle:focus {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* Smooth transitions */
+.password-toggle,
+.form-group input,
+.login-button,
+.demo-button {
+  transition: all 0.2s ease;
 }
