@@ -55,7 +55,7 @@ const Login = ({ onLoginSuccess }) => {
           )}
           
           <form onSubmit={handleSubmit} className="login-form">
-            <div className="form-group">
+            <div className="form-group-login">
               <label htmlFor="username">Username</label>
               <input
                 id="username"
@@ -69,7 +69,7 @@ const Login = ({ onLoginSuccess }) => {
               />
             </div>
             
-            <div className="form-group password-group">
+            <div className="form-group-login password-group">
               <label htmlFor="password">Password</label>
               <div className="password-input-wrapper">
                 <input
