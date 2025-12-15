@@ -369,8 +369,6 @@ body {
 .password-toggle-btn {
   position: absolute;
   right: 14px;
-  top: 50%;
-  transform: translateY(-50%) !important;
   background: transparent !important;
   border: none;
   cursor: pointer;
@@ -892,3 +890,4 @@ body {
     backdrop-filter: none;
   }
 }
+
